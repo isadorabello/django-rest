@@ -1,3 +1,4 @@
 # django-rest
 
-### repositório dedicado ao aprendizado de Django Rest Framework
+### Repositório dedicado ao aprendizado de Django Rest Framework
+### Curso -> Alura
