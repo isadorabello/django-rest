@@ -7,9 +7,9 @@
     
 #     return JsonResponse(aluno)
 
-from rest_framework import viewsets
+from rest_framework import viewsets, generics
 from escola.models import Aluno, Curso, Matricula
-from escola.serializer import AlunoSerializer, CursoSerializer, MatriculaSerializer
+from escola.serializer import AlunoSerializer, CursoSerializer, MatriculaSerializer, ListaMatriculasAlunoSerializer
 
 
 class AlunosViewSet(viewsets.ModelViewSet):
@@ -27,3 +27,11 @@ class MatriculasViewSet(viewsets.ModelViewSet):
     """Exibindo os relacionamentos entre aluno e curso -> matriculas"""
     queryset = Matricula.objects.all()
     serializer_class = MatriculaSerializer
+
+class ListaMatriculasAluno(generics.ListAPIView):
+    """Listando as matriculas de um(a) aluno(a)"""
+    def get_queryset(self):
+        queryset = Matricula.objects.filter(aluno_id=self.kwargs['pk'])
+        return queryset
+    serializer_class = ListaMatriculasAlunoSerializer
+    
