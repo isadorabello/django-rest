@@ -1,1 +1,1 @@
-"# Reposit¢rio de treino DjangoREST" 
+# Reposit√≥rio de treino DjangoREST
